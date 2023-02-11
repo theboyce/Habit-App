@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Habits.</h2>
+      <p>Want to start a habit?</p>
+
+      <div class="form-div">
+        <label for="habit">Enter your habit name</label>
+        <input type="text" name="your_habit" id="habit" />
+        <label for="interval">Select your interval type</label>
+        <select id="interval" name="time">
+          <!-- <option value="---">---</option> -->
+          <option value="hours">Hour(s)</option>
+          <option value="minutes">Minute(s)</option>
+          <option value="times">Time(s)</option>
+        </select>
+        <label for="duration">Enter the number of minutes you want to</label>
+        <input type="number" name="duration" id="duration" />
+        <button type="submit" id="btn">Let's go</button>
+      </div>
+
+      <div id="down">
+        <p id="preamble"></p>
+        <div class="output">
+          <div id="first">
+            <p id="myPar"></p>
+          </div>
+          <div id="second"></div>
+          <div id="third"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="App.js"></script>
+  </body>
+</html>
