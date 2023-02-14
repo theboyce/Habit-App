@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Habits.</h2>
+      <p id="intro">Want to start a habit?</p>
+
+      <div class="form-div">
+        <label for="habit">Enter your habit name</label>
+        <input type="text" name="your_habit" id="habit" />
+        <label for="interval">Select your interval type</label>
+
+        <select id="intervalSelect">     
+          <option default>---</option>
+          <option value="hour(s)">Hour(s)</option>
+          <option value="minute(s)">Minute(s)</option>
+          <option value="time(s)">Time(s)</option>
+        </select>
+        <label for="duration" id="durationLabel">Enter the number of time(s) you want to</label>
+        <input type="number" name="duration" id="duration" />
+        <button type="submit" id="btn">Let's go</button>
+      </div>
+
+      <div id="downDiv">
+        <p id="preamble"></p>
+        <div class="output">
+          <div id="first">
+            <p id="threeMonths"> </p>
+            <p id="totalDuration">In 3 months</p>
+          </div>
+          <div id="second">
+            <p id="sixMonths"> </p>
+            <p id="totalDuration">In 6 months</p>
+          </div>
+          <div id="third">
+            <p id="year"> </p>
+            <p id="totalDuration">In a year</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="App.js"></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+*{
+    font-family: Helvetica, sans-serif;
+}
+
+.container {
+  width: 40%;
+  margin: 0 auto;
+  background-color: rgb(230, 248, 243);
+  padding: 2rem 1rem;
+  border: 2px solid rgb(32, 29, 29);
+  border-radius: 1%;
+ 
+}
+
+.form-div{
+    width: 50%;
+    margin: 0 auto;
+    display: grid;
+
+    
+}
+
+input,select{
+    margin-bottom: 0.5rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 5px;
+    border: 1px solid rgb(22, 22, 22);
+}
+
+#btn{
+    margin-top:0.5rem;
+    padding: 0.5rem 0.6rem;
+    border-radius: 5px;
+    background-color: rgb(32, 29, 29);
+    color: white;
+}
+
+#downDiv{
+    margin-top: 1rem;
+    display: none;
+    width: 100%;
+}
+
+.output{
+    width: 100%;
+   /* border: 1px solid red; */
+   display: flex;justify-content: space-between;
+}
+
+#first, #second, #third{
+    border: 1px solid rgb(10, 10, 10);
+    border-radius: 15px;
+    width: 30%;
+    padding-left: 1rem;
+    padding-top: 2rem;
+    background-color: white;
+}
+
+#threeMonths, #sixMonths, #year {
+    font-size: 1.5rem;
+    
+}
+
+#totalDuration{
+    font-size: 1rem;
+   font-weight: bolder;
+}
+
+#preamble, #intro {
+    color: rgb(55, 4, 122);
+    font-weight: bold;
+}
