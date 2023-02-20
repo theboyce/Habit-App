@@ -8,62 +8,56 @@ const firstPar = document.getElementById('myPar');
 const preamble = document.getElementById('preamble');
 const outputDiv = document.getElementById('downDiv');
 
-//i set select to the inteval inout
-var select = document.getElementById('intervalSelect');
+const select = document.getElementById('intervalSelect');
+
+let selected;
+habit = habitInput.value;
+duration = durationInput.value || 0;
 
 //a function to get the index and value of the select options when changed
-select.addEventListener('change', function () {
-  var selected = this.options[this.selectedIndex].value;
-  var interval = selected;
-  var index = this.selectedIndex;
+select.addEventListener('change', function (e) {
+  selected = e.target.value;
 
-  //changing the label text of the duration input when the interval select option is changed
-  switch (index) {
-    case 0:
-      document.getElementById('durationLabel').innerHTML =
-        'Enter the number of times per day ';
-      break;
-    case 1:
-      document.getElementById('durationLabel').innerHTML =
-        'Enter the number of hours per day ';
-      break;
-    case 2:
-      document.getElementById('durationLabel').innerHTML =
-        'Enter the number of minutes per day ';
-      break;
-    case 3:
-      document.getElementById('durationLabel').innerHTML =
-        'Enter the number of times per day ';
-      break;
-  }
+  document.getElementById(
+    'durationLabel'
+  ).innerHTML = `Enter the number of ${selected} per day `;
 
-  //an onclick event listener on the BUTTON to render changes to the output div
-  submit.addEventListener('click', function (e) {
-    e.preventDefault();
-    habit = habitInput.value;
-    duration = durationInput.value;
+  validateInput();
+});
+
+function validateInput() {
+  //appending a text to the preamble paragraph while passing the habit, duration and interval objects
+
+  preamble.innerHTML = `If you ${habit} ${duration} ${selected} per day...`;
+
+  //calculation to display  in the output div
+  threeMonths = duration * 30 * 3;
+  sixMonths = duration * 30 * 6;
+  year = duration * 365;
+
+  //appending the calculated values to the output div
+  threeMonthsValue = document.getElementById('threeMonths');
+  threeMonthsValue.innerHTML = `${threeMonths} ${selected}`;
+
+  sixMonthsValue = document.getElementById('sixMonths');
+  sixMonthsValue.innerHTML = `${sixMonths} ${selected}`;
+
+  yearValue = document.getElementById('year');
+  yearValue.innerHTML = `${year} ${selected}`;
+
+  if (duration) {
     outputDiv.style.display = 'block';
-    // console.log(duration);
+  } else {
+    outputDiv.style.display = 'none';
+  }
+}
 
-    //appending a text to the preamble paragraph while passing the habit, duration and interval objects
-    preamble.innerHTML = `If you ${habit} ${duration} ${interval} per day...`;
+habitInput.addEventListener('change', function (e) {
+  habit = e.target.value;
+  validateInput();
+});
 
-    //calculation to display  in the output div
-    threeMonths = (duration * 30) * 3;
-    sixMonths = (duration * 30) * 6;
-    year = (duration * 365);
-    // console.log(threeMonths);
-    // console.log(sixMonths);
-    // console.log(year);
-
-    //appending the calculated values to the output div
-    threeMonthsValue = document.getElementById('threeMonths');
-    threeMonthsValue.innerHTML = `${threeMonths} ${interval}`;
-
-    sixMonthsValue = document.getElementById('sixMonths');
-    sixMonthsValue.innerHTML = `${sixMonths} ${interval}`;
-
-    yearValue = document.getElementById('year');
-    yearValue.innerHTML = `${year} ${interval}`;
-  });
+durationInput.addEventListener('change', function (e) {
+  duration = e.target.value;
+  validateInput();
 });
